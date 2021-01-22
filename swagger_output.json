@@ -15,12 +15,16 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/": {
-      "get": {
+    "/api/users/login": {
+      "post": {
         "tags": [],
         "description": "",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/api/users": {
@@ -28,10 +32,17 @@
         "tags": [],
         "description": "",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
-    "/test": {
+    "/api/admin/users": {
       "get": {
         "tags": [],
         "description": "",
@@ -39,44 +50,120 @@
         "responses": {}
       }
     },
-    "/test/{id}": {
+    "/api/users/logout": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/books/{page}/{pagesize}": {
       "get": {
         "tags": [],
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "page",
             "in": "path",
             "required": true,
             "type": "string"
-          }
-        ],
-        "responses": {}
-      },
-      "put": {
-        "tags": [],
-        "description": "",
-        "parameters": [
+          },
           {
-            "name": "id",
+            "name": "pagesize",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {}
-      },
+      }
+    },
+    "/api/books/{id}": {
       "delete": {
         "tags": [],
         "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/admin/books": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/books/{id}/reviews": {
+      "post": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/books/{id}/reviews/{page}/{pagesize}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/books/{id}/reviews/{reviewId}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/books/{id}/rate": {
+      "put": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/reviews/{reviewId}/{id}/votes": {
+      "put": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/admin/users/{id}/banstatus": {
+      "put": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/admin/books/{id}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/admin/books/{id}/reviews": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/admin/books/{id}/reviews/{reviewId}": {
+      "delete": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
         "responses": {}
       }
     }
