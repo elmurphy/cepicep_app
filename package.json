@@ -1,0 +1,30 @@
+{
+	"name": "express-crud",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"serve": "nodemon index.js",
+		"swagger": "node swagger_init.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"express-fileupload": "^1.2.1",
+		"jsonwebtoken": "^8.5.1",
+		"jwt-decode": "^3.1.2",
+		"mongodb": "^3.6.3",
+		"mongoose": "^5.11.13",
+		"passport": "^0.4.1",
+		"passport-jwt": "^4.0.0",
+		"passport-local": "^1.0.0",
+		"swagger-autogen": "^2.5.1",
+		"swagger-ui-express": "^4.1.6"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.7"
+	}
+}
