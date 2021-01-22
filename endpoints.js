@@ -69,6 +69,25 @@ module.exports = (app) => {
 		});
 	});
 
+	app.get("/api/admin/users", (req, res, next) => {
+		const bearer = req.headers["authorization"];
+		const user = jwt_decode(bearer.replace("Bearer ", ""));
+		const isBearerAdmin = user.role == "admin";
+		if (!isBearerAdmin) {
+			return res.send("login as an admin.");
+		}
+
+		userModel.find((err, docs) => {
+			if (err) return res.send(err);
+			const responseData = [];
+			for (const i in docs) {
+				const currentDoc = docs[i];
+				responseData.push({ role: currentDoc.role, isDeleted: currentDoc.isDeleted, username: currentDoc.username, avatarPath: currentDoc.avatarPath, _id: currentDoc._id });
+			}
+			res.send(responseData);
+		});
+	});
+
 	app.delete("/api/users/logout", passport.authenticate("jwt", { session: false }), (req, res) => {
 		const bearer = req.headers["authorization"].replace("Bearer ", "");
 
